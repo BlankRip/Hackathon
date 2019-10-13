@@ -9,7 +9,6 @@ public class SplashScreen : MonoBehaviour
     // Start is called before the first frame update
 
     public Image splashimage;
-    public string loadlevel;
 
     IEnumerator Start()
     {
@@ -18,7 +17,7 @@ public class SplashScreen : MonoBehaviour
         yield return new WaitForSeconds(2.5f);
         FadeOut();
         yield return new WaitForSeconds(2.5f);
-        SceneManager.LoadScene(loadlevel);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     // Update is called once per frame

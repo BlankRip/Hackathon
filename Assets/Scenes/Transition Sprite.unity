@@ -235,10 +235,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bb6fcd0962b17242913bf5ea4215ccb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material:
-  - {fileID: 2100000, guid: 1d64bde815608e04e8dafe270d6f3db0, type: 2}
-  - {fileID: 2100000, guid: 963d374b717538549a56556c08b80c84, type: 2}
-  - {fileID: 2100000, guid: 3eed204fca74ea043a6285f48140fb72, type: 2}
+  speed: 0.2
+  color1: {r: 0, g: 0.9898968, b: 1, a: 0}
+  color2: {r: 1, g: 0, b: 0.9371724, a: 0}
+  color3: {r: 1, g: 0, b: 0.57254905, a: 0}
+  color4: {r: 1, g: 0, b: 0, a: 0}
+  color5: {r: 1, g: 0.6627451, b: 0, a: 0}
+  color6: {r: 1, g: 1, b: 0, a: 0}
+  color7: {r: 0, g: 0, b: 0, a: 0}
+  currentColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &2133096394
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -269,7 +274,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1d64bde815608e04e8dafe270d6f3db0, type: 2}
+  - {fileID: 2100000, guid: 17b23caf65db33a4b864c7a819baa78e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
