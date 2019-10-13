@@ -9,8 +9,8 @@ public class Click : MonoBehaviour
     [Header("Things for coin click")]
     // Things required for the coin click
     [SerializeField] Transform coin;
-    [SerializeField] TextMeshProUGUI cashText;
-    [HideInInspector] public int cash = 0;
+    public TextMeshProUGUI cashText;
+    [HideInInspector] public float cash = 0;
     Vector3 initialScale;
 
     [Header("Things for game pannel displays")]
