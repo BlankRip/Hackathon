@@ -33,7 +33,13 @@ public class Click : MonoBehaviour
     [SerializeField] GameObject doYouLockIt;
     [SerializeField] GameObject cardLocked;
     [SerializeField] GameObject lockTip;
-    
+
+    [Header("For sounds")]
+    // To have sound effects
+    [SerializeField] AudioSource aSource;
+    [SerializeField] AudioClip coinClickClip;
+    [SerializeField] AudioClip investClip;
+
     void Start()
     {
         initialScale = coin.localScale;
@@ -43,6 +49,7 @@ public class Click : MonoBehaviour
     // The function to be done when on clicking the coin
     public void OnClickCoin()
     {
+        aSource.PlayOneShot(coinClickClip);
         coin.localScale = initialScale + new Vector3(0.02f, 0.02f, 0.02f);
         StartCoroutine(ResetSize());
         cash++;
