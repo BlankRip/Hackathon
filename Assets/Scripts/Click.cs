@@ -159,6 +159,10 @@ public class Click : MonoBehaviour
     }
 
 
+
+
+
+
     // To set the size of the coin back to the original
     IEnumerator ResetSize()
     {
@@ -169,7 +173,7 @@ public class Click : MonoBehaviour
     // To make the bot pannal appear after a bit as we need to wait for the animation to complete
     IEnumerator ShowTheTipNow()
     {
-        yield return new WaitForSeconds(0.6f);
+        yield return new WaitForSeconds(1f);
         botTip.SetActive(true);
         showTip = true;
     }
