@@ -6,12 +6,14 @@ using TMPro;
 
 public class Click : MonoBehaviour
 {
+    [Header("Things for coin click")]
     // Things required for the coin click
     [SerializeField] Transform coin;
     [SerializeField] TextMeshProUGUI cashText;
     [HideInInspector] public int cash = 0;
     Vector3 initialScale;
 
+    [Header("Things for game pannel displays")]
     // Things required for the pannel display
     [SerializeField] GameObject infoPannel;
     [SerializeField] GameObject investPannel;
@@ -21,8 +23,16 @@ public class Click : MonoBehaviour
     bool showInvest = false;
     bool showTip = false;
 
+    [Header("Things for animation")]
     //Things required for the animations of the bot
     [SerializeField] Animator botAnimate;
+
+    [Header("Things for card lost interaction")]
+    //Things needed for the card interaction
+    [SerializeField] GameObject isCardLost;
+    [SerializeField] GameObject doYouLockIt;
+    [SerializeField] GameObject cardLocked;
+    [SerializeField] GameObject lockTip;
     
     void Start()
     {
@@ -100,6 +110,59 @@ public class Click : MonoBehaviour
         
     }
 
+
+
+    // Card lock interation UI
+    // Show is card lock text
+    public void IsCardLost()
+    {
+        isCardLost.SetActive(true);
+    }
+    
+    //if user did not loose his card
+    public void CardNotLost()
+    {
+        isCardLost.SetActive(false);
+    }
+
+    // If user lost his card ask if he want to lock
+    public void DoYouWantLock()
+    {
+        doYouLockIt.SetActive(true);
+        isCardLost.SetActive(false);
+    }
+
+    // Show that card is now locked
+    public void CardLocked()
+    {
+        cardLocked.SetActive(true);
+        doYouLockIt.SetActive(false);
+    }
+
+    // Tip that he should lock
+    public void YouShouldLock()
+    {
+        lockTip.SetActive(true);
+        doYouLockIt.SetActive(false);
+    }
+
+    // Back to game from card locked message
+    public void BackToGameCL()
+    {
+        cardLocked.SetActive(false);
+    }
+
+    //Back to game from tip message
+    public void BackToGameTip()
+    {
+        lockTip.SetActive(false);
+    }
+
+
+
+
+
+
     // To set the size of the coin back to the original
     IEnumerator ResetSize()
     {
@@ -110,7 +173,7 @@ public class Click : MonoBehaviour
     // To make the bot pannal appear after a bit as we need to wait for the animation to complete
     IEnumerator ShowTheTipNow()
     {
-        yield return new WaitForSeconds(0.6f);
+        yield return new WaitForSeconds(1f);
         botTip.SetActive(true);
         showTip = true;
     }
