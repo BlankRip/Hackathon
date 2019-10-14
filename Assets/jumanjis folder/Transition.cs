@@ -17,7 +17,9 @@ public class Transition : MonoBehaviour
     public Color currentColor;
     MeshRenderer myRenderer;
     int colorIndex;
+    int index = 0;
     float startTime;
+    float time = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -28,16 +30,20 @@ public class Transition : MonoBehaviour
         colorIndex = 1;
     }
 
+
+     public void ChngeColor()
+    {
+        colorIndex += 1;
+        time = 0;
+    }
+
     // Update is called once per frame
     void Update()
     {
+        time += Time.deltaTime;
 
-        myRenderer.material.color = Color.Lerp(myRenderer.material.color, currentColor, 0.01f);
+        myRenderer.material.color = Color.Lerp(myRenderer.material.color, currentColor, time);
 
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            colorIndex += 1;
-        }
 
         if (colorIndex == 1)
         {
